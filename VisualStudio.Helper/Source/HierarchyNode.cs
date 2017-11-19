@@ -29,7 +29,7 @@ using System.Security.Permissions;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell.Interop;
 using ProjectLinker.Helper.Design;
-using ProjectLinker.Helper.Properties;
+using ProjectLinker.Helper;
 
 namespace ProjectLinker.Helper
 {

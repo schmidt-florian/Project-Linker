@@ -112,46 +112,16 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CannotCreateItemWithEmptyName" xml:space="preserve">
     <value>Cannot create project item with an empty name</value>
   </data>
-  <data name="FailedToCreateOutputWindow" xml:space="preserve">
-    <value>Unable to create Project Linker output window.</value>
-  </data>
-  <data name="FileAlreadyExistsInFileSystem" xml:space="preserve">
-    <value>The file '{0}' already exists in the file system. No link was created in target project '{1}'.</value>
-  </data>
-  <data name="FileLinkSuccessfullyRemoved" xml:space="preserve">
-    <value>The linked file '{0}' was removed from target project '{1}'.</value>
-  </data>
-  <data name="FileSuccessfullyLinked" xml:space="preserve">
-    <value>The linked file '{0}' was added to target project '{1}'.</value>
-  </data>
-  <data name="FileToRemoveDoesNotExistInTarget" xml:space="preserve">
-    <value>The file '{0}' is not linked from project '{1}'. No action taken.</value>
-  </data>
-  <data name="FolderCreatedInTarget" xml:space="preserve">
-    <value>The folder '{0}' was created in target project '{1}'.</value>
-  </data>
-  <data name="FolderSuccessfullyRemoved" xml:space="preserve">
-    <value>The folder '{0}' was removed from target project '{1}'.</value>
-  </data>
-  <data name="FolderToRemoveIsNotEmpty" xml:space="preserve">
-    <value>The folder '{0}' in target project '{1}' is not empty, hence it was not removed.</value>
-  </data>
   <data name="General_ArgumentEmpty" xml:space="preserve">
     <value>Argument '{0}' cannot be empty</value>
-  </data>
-  <data name="IncludingExistingFolderInProject" xml:space="preserve">
-    <value>The folder '{0}' already exists in the file system. This folder was included in target project '{1}'.</value>
-  </data>
-  <data name="InitializingProjectTracker" xml:space="preserve">
-    <value>Initializing Project Tracker.</value>
   </data>
   <data name="InvalidComServiceProvider" xml:space="preserve">
     <value>Invalid COM Service Provider</value>
@@ -162,41 +132,8 @@
   <data name="InvalidProjectUniqueName" xml:space="preserve">
     <value>The project name '{0}' was not found in the solution.</value>
   </data>
-  <data name="ItemExcludedByFilter" xml:space="preserve">
-    <value>The item '{0}' was not linked because it is excluded by the current filters in target project '{1}'.</value>
-  </data>
-  <data name="LoggerOutputPaneTitle" xml:space="preserve">
-    <value>Project Linker</value>
-  </data>
   <data name="ProjectDoesNotExist" xml:space="preserve">
     <value>Project with GUID '{0}' does not exist</value>
-  </data>
-  <data name="ProjectFilesAlreadyLinked" xml:space="preserve">
-    <value>Projects are already linked.</value>
-  </data>
-  <data name="ProjectLinkerCaption" xml:space="preserve">
-    <value>Project Linker</value>
-  </data>
-  <data name="ProjectLinkerErrorWithPrefix" xml:space="preserve">
-    <value>ProjectLinker:  {0}</value>
-  </data>
-  <data name="ProjectsSuccessfullyLinked" xml:space="preserve">
-    <value>Projects successfully linked.</value>
-  </data>
-  <data name="ProjectsSuccessfullyLinkedAll" xml:space="preserve">
-    <value>Project items successfully linked.</value>
-  </data>
-  <data name="ProjectsSuccessfullyRelinked" xml:space="preserve">
-    <value>Link between target project '{0}'  and source project '{1}' was successfully restored.</value>
-  </data>
-  <data name="ProjectsSuccessfullyUnlinked" xml:space="preserve">
-    <value>Target project '{0}' was successfully unlinked from source project '{1}'.</value>
-  </data>
-  <data name="ProjectsUnlinkedOnSourceClose" xml:space="preserve">
-    <value>Target project '{0}' temporarily unlinked from source project '{1}' on Source project closure.</value>
-  </data>
-  <data name="ProjectsUnlinkedOnTargetClose" xml:space="preserve">
-    <value>Target project '{0}' temporarily unlinked from source project '{1}' on Target project closure.</value>
   </data>
   <data name="PropertyNameNotFound" xml:space="preserve">
     <value>The property '{0}' was not found in the project '{1}'</value>
@@ -207,20 +144,8 @@
   <data name="ReflectionHelper_InvalidQName" xml:space="preserve">
     <value>Invalid qualified name '{0}'</value>
   </data>
-  <data name="SourceProjectIsAlreadyLinkedAsTarget" xml:space="preserve">
-    <value>Project '{1}' is already linked to source project '{2}' as a Target. Link between target project '{0}' and source project '{1}' was not restored.</value>
-  </data>
   <data name="StringCannotBeEmpty" xml:space="preserve">
     <value>String cannot be empty</value>
-  </data>
-  <data name="TargetProjectIsAlreadyLinkedAsSource" xml:space="preserve">
-    <value>Project '{0}' is already linked to target project {2} as a Source. Link between target project '{0}' and source project '{1}' was not restored.</value>
-  </data>
-  <data name="TargetProjectIsAlreadyLinkedAsTarget" xml:space="preserve">
-    <value>Project '{0}' is already linked to source project '{2}' as a Target. Link between target project '{0}' and source project '{1}' was not restored.</value>
-  </data>
-  <data name="TargetProjectWaitingForSource" xml:space="preserve">
-    <value>Target project '{0}' is waiting for source project with GUID {1} to be loaded in order to restore its link.</value>
   </data>
   <data name="UnsupportedProjectKind" xml:space="preserve">
     <value>Project kind is unsupported.</value>

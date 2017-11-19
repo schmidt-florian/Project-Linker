@@ -5,6 +5,8 @@ using System.Runtime.InteropServices;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using ProjectLinker.Helper;
+using ProjectLinker.Utility;
 
 namespace ProjectLinker
 {

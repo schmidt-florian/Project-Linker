@@ -17,7 +17,7 @@
 
 using System;
 using System.Globalization;
-using ProjectLinker.Helper.Properties;
+using ProjectLinker.Helper;
 
 namespace ProjectLinker.Helper
 {

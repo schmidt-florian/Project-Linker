@@ -187,10 +187,6 @@
       <Project>{530439D0-6A58-491E-8446-DDFEC5AD83EA}</Project>
       <Name>ProjectLinker.2017</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VisualStudio.Helper\Source\ProjectLinker.Helper.csproj">
-      <Project>{8404D99F-9A3E-467F-A4D0-5F5D5C15A075}</Project>
-      <Name>ProjectLinker.Helper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\VisualStudio.Helper\UnitTestLibrary\ProjectLinker.UnitTestLibrary.csproj">
       <Project>{6E2DB78C-425A-42F8-88D7-228AAD7296C3}</Project>
       <Name>ProjectLinker.UnitTestLibrary</Name>

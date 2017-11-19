@@ -30,7 +30,7 @@ using Microsoft.CSharp;
 using Microsoft.VisualBasic;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell.Interop;
-using ProjectLinker.Helper.Properties;
+using ProjectLinker.Helper;
 using VsWebSite;
 using VSLangProj;
 using Project = Microsoft.Build.Evaluation.Project;

@@ -61,6 +61,15 @@ namespace ProjectLinker {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cannot create project item with an empty name ähnelt.
+        /// </summary>
+        internal static string CannotCreateItemWithEmptyName {
+            get {
+                return ResourceManager.GetString("CannotCreateItemWithEmptyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Unable to create Project Linker output window. ähnelt.
         /// </summary>
         internal static string FailedToCreateOutputWindow {
@@ -133,6 +142,15 @@ namespace ProjectLinker {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Argument &apos;{0}&apos; cannot be empty ähnelt.
+        /// </summary>
+        internal static string General_ArgumentEmpty {
+            get {
+                return ResourceManager.GetString("General_ArgumentEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die The folder &apos;{0}&apos; already exists in the file system. This folder was included in target project &apos;{1}&apos;. ähnelt.
         /// </summary>
         internal static string IncludingExistingFolderInProject {
@@ -151,6 +169,33 @@ namespace ProjectLinker {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Invalid COM Service Provider ähnelt.
+        /// </summary>
+        internal static string InvalidComServiceProvider {
+            get {
+                return ResourceManager.GetString("InvalidComServiceProvider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Invalid name &apos;{0}&apos; for a file ähnelt.
+        /// </summary>
+        internal static string InvalidFileName {
+            get {
+                return ResourceManager.GetString("InvalidFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The project name &apos;{0}&apos; was not found in the solution. ähnelt.
+        /// </summary>
+        internal static string InvalidProjectUniqueName {
+            get {
+                return ResourceManager.GetString("InvalidProjectUniqueName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die The item &apos;{0}&apos; was not linked because it is excluded by the current filters in target project &apos;{1}&apos;. ähnelt.
         /// </summary>
         internal static string ItemExcludedByFilter {
@@ -165,6 +210,15 @@ namespace ProjectLinker {
         internal static string LoggerOutputPaneTitle {
             get {
                 return ResourceManager.GetString("LoggerOutputPaneTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Project with GUID &apos;{0}&apos; does not exist ähnelt.
+        /// </summary>
+        internal static string ProjectDoesNotExist {
+            get {
+                return ResourceManager.GetString("ProjectDoesNotExist", resourceCulture);
             }
         }
         
@@ -250,11 +304,47 @@ namespace ProjectLinker {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The property &apos;{0}&apos; was not found in the project &apos;{1}&apos; ähnelt.
+        /// </summary>
+        internal static string PropertyNameNotFound {
+            get {
+                return ResourceManager.GetString("PropertyNameNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Invalid assembly name &apos;{0}&apos; ähnelt.
+        /// </summary>
+        internal static string ReflectionHelper_InvalidAssemblyName {
+            get {
+                return ResourceManager.GetString("ReflectionHelper_InvalidAssemblyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Invalid qualified name &apos;{0}&apos; ähnelt.
+        /// </summary>
+        internal static string ReflectionHelper_InvalidQName {
+            get {
+                return ResourceManager.GetString("ReflectionHelper_InvalidQName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Project &apos;{1}&apos; is already linked to source project &apos;{2}&apos; as a Target. Link between target project &apos;{0}&apos; and source project &apos;{1}&apos; was not restored. ähnelt.
         /// </summary>
         internal static string SourceProjectIsAlreadyLinkedAsTarget {
             get {
                 return ResourceManager.GetString("SourceProjectIsAlreadyLinkedAsTarget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die String cannot be empty ähnelt.
+        /// </summary>
+        internal static string StringCannotBeEmpty {
+            get {
+                return ResourceManager.GetString("StringCannotBeEmpty", resourceCulture);
             }
         }
         
@@ -282,6 +372,15 @@ namespace ProjectLinker {
         internal static string TargetProjectWaitingForSource {
             get {
                 return ResourceManager.GetString("TargetProjectWaitingForSource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Project kind is unsupported. ähnelt.
+        /// </summary>
+        internal static string UnsupportedProjectKind {
+            get {
+                return ResourceManager.GetString("UnsupportedProjectKind", resourceCulture);
             }
         }
     }
