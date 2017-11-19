@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectLinker.Helper", "VisualStudio.Helper\Source\ProjectLinker.Helper.csproj", "{8404D99F-9A3E-467F-A4D0-5F5D5C15A075}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectLinker.Helper.Tests", "VisualStudio.Helper\Unit Tests\ProjectLinker.Helper.Tests.csproj", "{30F31594-34AD-48DF-8C7E-7B3A71A2CF10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectLinker.UnitTestLibrary", "VisualStudio.Helper\UnitTestLibrary\ProjectLinker.UnitTestLibrary.csproj", "{6E2DB78C-425A-42F8-88D7-228AAD7296C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectLinker.Tests", "ProjectLinker_UnitTestProject\ProjectLinker.Tests.csproj", "{EAE14E32-001E-4469-9BF9-0C8AB0147EAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectLinker.2017", "ProjectLinker.2017\ProjectLinker.2017.csproj", "{530439D0-6A58-491E-8446-DDFEC5AD83EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{93400A80-0BDC-4C22-8766-B2058B6A2710}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Visual Studio 2015\Projects\ProjectLinker\ProjectLinker\License.txt = ..\..\..\Visual Studio 2015\Projects\ProjectLinker\ProjectLinker\License.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{1E476989-A819-4E78-8060-5CA11020ACB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8404D99F-9A3E-467F-A4D0-5F5D5C15A075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8404D99F-9A3E-467F-A4D0-5F5D5C15A075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8404D99F-9A3E-467F-A4D0-5F5D5C15A075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8404D99F-9A3E-467F-A4D0-5F5D5C15A075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30F31594-34AD-48DF-8C7E-7B3A71A2CF10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30F31594-34AD-48DF-8C7E-7B3A71A2CF10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30F31594-34AD-48DF-8C7E-7B3A71A2CF10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30F31594-34AD-48DF-8C7E-7B3A71A2CF10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E2DB78C-425A-42F8-88D7-228AAD7296C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E2DB78C-425A-42F8-88D7-228AAD7296C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E2DB78C-425A-42F8-88D7-228AAD7296C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E2DB78C-425A-42F8-88D7-228AAD7296C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAE14E32-001E-4469-9BF9-0C8AB0147EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAE14E32-001E-4469-9BF9-0C8AB0147EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAE14E32-001E-4469-9BF9-0C8AB0147EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAE14E32-001E-4469-9BF9-0C8AB0147EAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{530439D0-6A58-491E-8446-DDFEC5AD83EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{530439D0-6A58-491E-8446-DDFEC5AD83EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{530439D0-6A58-491E-8446-DDFEC5AD83EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{530439D0-6A58-491E-8446-DDFEC5AD83EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{30F31594-34AD-48DF-8C7E-7B3A71A2CF10} = {1E476989-A819-4E78-8060-5CA11020ACB1}
+		{6E2DB78C-425A-42F8-88D7-228AAD7296C3} = {1E476989-A819-4E78-8060-5CA11020ACB1}
+		{EAE14E32-001E-4469-9BF9-0C8AB0147EAF} = {1E476989-A819-4E78-8060-5CA11020ACB1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7C38A9F-3DB4-4BEA-B923-1DA1DAE8D146}
+	EndGlobalSection
+EndGlobal
