@@ -3,7 +3,7 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011"
                  xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="70c7dff7-9fdc-4260-b67f-d161c254b47f" Version="1.6.3" Language="en-US" Publisher="Heia Samahi" />
+        <Identity Id="70c7dff7-9fdc-4260-b67f-d161c254b47f" Version="1.6.4" Language="en-US" Publisher="Heia Samahi" />
         <DisplayName>Project Linker</DisplayName>
         <Description xml:space="preserve">Project Linker
 </Description>
