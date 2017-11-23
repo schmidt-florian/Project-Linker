@@ -304,6 +304,7 @@ namespace ProjectLinker.Services
 
             Guid sourceProjectId = sourceProject.GetProjectGuid();
             targetDteProject.Globals[ProjectLinkReferenceKey] = sourceProjectId.ToString();
+            // ReSharper disable once UseIndexedProperty
             targetDteProject.Globals.set_VariablePersists(ProjectLinkReferenceKey, true);
         }
 
@@ -433,7 +434,7 @@ namespace ProjectLinker.Services
                     }
                     targetProject = DequeueProjectLink(projectId);
                 }
-
+                // ReSharper disable once UseIndexedProperty
                 if (currentDteProject?.Globals != null && currentDteProject.Globals.get_VariableExists(ProjectLinkReferenceKey))
                 {
                     Guid sourceProjectId = new Guid(currentDteProject.Globals[ProjectLinkReferenceKey] as string);

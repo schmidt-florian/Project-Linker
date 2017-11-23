@@ -106,8 +106,8 @@
     <Compile Include="..\VisualStudio.Helper\Source\ReflectionHelper.cs">
       <Link>Helper\ReflectionHelper.cs</Link>
     </Compile>
-    <Compile Include="AddProjectLinkCommand.cs" />
-    <Compile Include="EditLinksCommand.cs" />
+    <Compile Include="Commands\AddProjectLinkCommand.cs" />
+    <Compile Include="Commands\EditLinksCommand.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Guids.cs" />
     <Compile Include="ILogger.cs" />
@@ -136,12 +136,12 @@
     </Compile>
     <None Include="app.config" />
     <None Include="Resources\resources.designer.cs" />
+    <Compile Include="ServiceCreator.cs" />
     <Compile Include="Services\IProjectLinkTracker.cs" />
     <Compile Include="Services\ProjectLink.cs" />
     <Compile Include="Services\ProjectLinkTracker.cs" />
     <Compile Include="Services\ProjectLinktracker.NotImplementedListeners.cs" />
     <Compile Include="Services\SProjectLinkTracker.cs" />
-    <Compile Include="ShellPropertyEventHandler.cs" />
     <Compile Include="SolutionPicker\ISolutionPickerView.cs" />
     <Compile Include="SolutionPicker\SolutionPickerPresenter.cs" />
     <Compile Include="SolutionPicker\SolutionPickerView.cs">

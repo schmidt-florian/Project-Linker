@@ -1,22 +1,24 @@
 ﻿using System;
 using System.ComponentModel.Design;
+using System.Windows.Forms;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
-using ProjectLinker.LinksEditor;
+using ProjectLinker.Helper;
 using ProjectLinker.Services;
+using ProjectLinker.SolutionPicker;
 
-namespace ProjectLinker
+namespace ProjectLinker.Commands
 {
     /// <summary>
     ///     Command handler
     /// </summary>
-    internal sealed class EditLinksCommand
+    internal sealed class AddProjectLinkCommand
     {
         /// <summary>
         ///     Command ID.
         /// </summary>
-        public const int CommandId = 4129;
+        public const int CommandId = 0x0100;
 
         /// <summary>
         ///     Command menu group (command set GUID).
@@ -29,11 +31,11 @@ namespace ProjectLinker
         private readonly ProjectLinkerPackage _package;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="EditLinksCommand" /> class.
+        ///     Initializes a new instance of the <see cref="AddProjectLinkCommand" /> class.
         ///     Adds our command handlers for menu (commands must exist in the command table file)
         /// </summary>
         /// <param name="package">Owner package, not null.</param>
-        private EditLinksCommand(ProjectLinkerPackage package)
+        private AddProjectLinkCommand(ProjectLinkerPackage package)
         {
             _package = package ?? throw new ArgumentNullException(nameof(package));
 
@@ -48,7 +50,7 @@ namespace ProjectLinker
         /// <summary>
         ///     Gets the instance of the command.
         /// </summary>
-        public static EditLinksCommand Instance { get; private set; }
+        public static AddProjectLinkCommand Instance { get; private set; }
 
         /// <summary>
         ///     Gets the service provider from the owner package.
@@ -61,7 +63,7 @@ namespace ProjectLinker
         /// <param name="package">Owner package, not null.</param>
         public static void Initialize(ProjectLinkerPackage package)
         {
-            Instance = new EditLinksCommand(package);
+            Instance = new AddProjectLinkCommand(package);
         }
 
         /// <summary>
@@ -80,22 +82,39 @@ namespace ProjectLinker
             ErrorHandler.ThrowOnFailure(solution.GetSolutionInfo(out string s1, out string s2, out string s3));
             if (s1 != null && s2 != null && s3 != null)
             {
-                try
-                {
-                    IVsUIShell uiShell = (IVsUIShell) ServiceProvider.GetService(typeof(SVsUIShell));
+                IVsUIShell uiShell = _package.GetService<IVsUIShell, SVsUIShell>();
 
-                    ErrorHandler.ThrowOnFailure(uiShell.GetDialogOwnerHwnd(out IntPtr parentHwnd));
-                    IProjectLinkTracker linker = _package.GetService<IProjectLinkTracker, ISProjectLinkTracker>();
-                    if (linker == null)
-                    {
-                        throw new NullReferenceException();
-                    }
-                    LinksEditorView linksEditor = new LinksEditorView(linker, ServiceProvider);
-                    linksEditor.ShowDialog(new WindowHandleAdapter(parentHwnd));
-                }
-                catch (Exception ex)
+                ErrorHandler.ThrowOnFailure(uiShell.GetDialogOwnerHwnd(out IntPtr parentHwnd));
+
+                HierarchyNodeFactory hierarchyNodeFactory = new HierarchyNodeFactory(ServiceProvider);
+                IHierarchyNode targetProject = hierarchyNodeFactory.GetSelectedProject();
+                SolutionPickerView solutionPicker = new SolutionPickerView(ServiceProvider, targetProject);
+
+                DialogResult result = solutionPicker.ShowDialog(new WindowHandleAdapter(parentHwnd));
+
+                if (result == DialogResult.OK)
                 {
-                    _package.ShowInformationalMessageBox(Resources.ProjectLinkerCaption, ex.Message, true);
+                    try
+                    {
+                        IHierarchyNode sourceProject = solutionPicker.SelectedNode;
+
+                        IProjectLinkTracker linker = _package.GetService<IProjectLinkTracker, ISProjectLinkTracker>();
+
+                        // todo
+                        linker.AddProjectLink(sourceProject.ProjectGuid, targetProject.ProjectGuid);
+                        if (solutionPicker.CopyProjectItemsByDefault)
+                        {
+                            linker.LinkAllProjectItems(sourceProject.ProjectGuid, targetProject.ProjectGuid);
+                        }
+                        _package.ShowInformationalMessageBox(
+                            Resources.ProjectLinkerCaption,
+                            Resources.ProjectsSuccessfullyLinked,
+                            false);
+                    }
+                    catch (ProjectLinkerException ex)
+                    {
+                        _package.ShowInformationalMessageBox(Resources.ProjectLinkerCaption, ex.Message, true);
+                    }
                 }
             }
         }

@@ -10,73 +10,41 @@ using ProjectLinker.Services;
 
 namespace ProjectLinker
 {
-    public class ShellPropertyEventHandler : IVsShellPropertyEvents
+    public class ServiceCreator
     {
-        /// <summary>
-        ///     VS Package that provides this command, not null.
-        /// </summary>
+        public static ServiceCreator Instance;
         private readonly ProjectLinkerPackage _package;
 
-        uint _cookie;
-
-        public ShellPropertyEventHandler(ProjectLinkerPackage package)
+        private ServiceCreator(ProjectLinkerPackage package)
         {
             _package = package;
 
-
-            // set an eventlistener for shell property changes 
-            IVsShell shellService = _package.GetService<IVsShell, SVsShell>();
-            if (shellService != null)
-                ErrorHandler.ThrowOnFailure(shellService.AdviseShellPropertyChanges(this, out _cookie));
+            InitializeProjectLinkTracker();
         }
 
-        /// <summary>
-        ///     Gets the instance of the command.
-        /// </summary>
-        public static ShellPropertyEventHandler Instance { get; private set; }
-
-        /// <summary>
-        ///     Gets the service provider from the owner package.
-        /// </summary>
-        private IServiceProvider ServiceProvider => _package;
-
-        public int OnShellPropertyChange(int propid, object var)
-        {
-            if ((bool) var == false)
-            {
-                //zombie state dependent code/initialization
-                CreateOutputWindow();
-
-                object tracker = CreateProjectLinkTracker(_package, typeof(ISProjectLinkTracker));
-                if (tracker != null)
-                {
-                    Debug.Assert(tracker != null, "ProjectLinkTracker creation failed");
-
-                    Trace.WriteLine($"AddService: {nameof(ISProjectLinkTracker)} {tracker}");
-                    Trace.WriteLine($"AddService: {nameof(IHierarchyNodeFactory)}");
-
-                    ((IServiceContainer) ServiceProvider).AddService(typeof(ISProjectLinkTracker), tracker, true);
-                    ((IServiceContainer) ServiceProvider).AddService(typeof(IHierarchyNodeFactory), new HierarchyNodeFactory(_package));
-
-                    // eventlistener no longer needed
-                    IVsShell shellService = _package.GetService<IVsShell, SVsShell>();
-                    if (shellService != null)
-                        ErrorHandler.ThrowOnFailure(shellService.UnadviseShellPropertyChanges(_cookie));
-
-                    _cookie = 0;
-                }
-            }
-            return VSConstants.S_OK;
-        }
-
-
-        /// <summary>
-        ///     Initializes the singleton instance of the command.
-        /// </summary>
-        /// <param name="package">Owner package, not null.</param>
         public static void Initialize(ProjectLinkerPackage package)
         {
-            Instance = new ShellPropertyEventHandler(package);
+            Instance = new ServiceCreator(package);
+        }
+
+        private void InitializeProjectLinkTracker()
+        {
+            CreateOutputWindow();
+
+            object tracker = CreateProjectLinkTracker(_package, typeof(ISProjectLinkTracker));
+
+            if (tracker != null)
+            {
+                Trace.WriteLine($"AddService: {nameof(ISProjectLinkTracker)} {tracker}");
+                Trace.WriteLine($"AddService: {nameof(IHierarchyNodeFactory)}");
+
+                ((IServiceContainer) _package).AddService(typeof(ISProjectLinkTracker), tracker, true);
+                ((IServiceContainer) _package).AddService(typeof(IHierarchyNodeFactory), new HierarchyNodeFactory(_package));
+            }
+            else
+            {
+                Debug.Fail("ProjectLinkTracker creation failed");
+            }
         }
 
         private void CreateOutputWindow()
@@ -112,6 +80,10 @@ namespace ProjectLinker
                 {
                     IVsTrackProjectDocuments2 trackProjectDocuments = _package.GetService<IVsTrackProjectDocuments2, SVsTrackProjectDocuments>();
                     IVsSolution solution = _package.GetService<IVsSolution, SVsSolution>();
+                    if (solution == null)
+                    {
+                        _package.ShowInformationalMessageBox("Solution null", "Solution null", false);
+                    }
                     IVsOutputWindow outputWindow = _package.GetService<IVsOutputWindow, SVsOutputWindow>();
                     DTE dte = _package.GetService<DTE, SDTE>();
                     Solution4 dteSolution = null;

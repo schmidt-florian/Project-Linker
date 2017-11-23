@@ -5,8 +5,7 @@ using System.Runtime.InteropServices;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
-using ProjectLinker.Helper;
-using ProjectLinker.Utility;
+using ProjectLinker.Commands;
 
 namespace ProjectLinker
 {
@@ -34,6 +33,7 @@ namespace ProjectLinker
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification =
         "pkgdef, VS and vsixmanifest are valid VS terms")]
     [ProvideMenuResource("Menus.ctmenu", 1)]
+    [ProvideAutoLoad(UIContextGuids80.NoSolution)]
     public sealed class ProjectLinkerPackage : Package
     {
         /// <summary>
@@ -51,10 +51,12 @@ namespace ProjectLinker
         {
             base.Initialize();
             Trace.WriteLine($"Initialize: {nameof(ProjectLinkerPackage)}");
-            ShellPropertyEventHandler.Initialize(this);
+            
+            ServiceCreator.Initialize(this);
             AddProjectLinkCommand.Initialize(this);
             EditLinksCommand.Initialize(this);
         }
+
 
         public TInterface GetService<TInterface, TService>() where TInterface : class where TService : class
         {
@@ -66,9 +68,7 @@ namespace ProjectLinker
         {
             IVsUIShell uiShell = (IVsUIShell) GetService(typeof(SVsUIShell));
             Guid clsid = Guid.Empty;
-            int result;
             int makeModal = modal ? 1 : 0;
-
 
             ErrorHandler.ThrowOnFailure(
                 uiShell.ShowMessageBox(0, // Not used but required by api
@@ -81,7 +81,7 @@ namespace ProjectLinker
                     OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST,
                     OLEMSGICON.OLEMSGICON_INFO,
                     makeModal,
-                    out result
+                    out int result
                 )
             );
         }
